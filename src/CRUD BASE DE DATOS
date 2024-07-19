@@ -13,6 +13,7 @@ CREATE TABLE APPWEB.USUARIO (
     nombre varchar(40),
     apellido varchar(100),
     correo varchar(50),
+    contraseña varchar(20),
     perfil_ruta_imagen varchar (1024),
     primary key (id_usuario))
     engine= InnoDB default character set = utf8mb4;
@@ -36,8 +37,6 @@ CREATE TABLE APPWEB.TAB_INFO_SECCION(
     descripcion varchar(50),
     linea_1 varchar(2048),
     linea_2 varchar(2048),
-    linea_3 varchar(2048),
-    linea_4 varchar(2048),
     ruta_img varchar(1024),
     primary key (cod_seccion),
     foreign key fk_info_cat(cod_infocat) references TAB_INFO_CAT (cod_infocat))
@@ -60,11 +59,10 @@ CREATE TABLE APPWEB.TAB_INFO_SECCION(
 		cod_pc_seccion int auto_increment,
         id_usuario int,
         cod_part varchar(50),
+        titulo varchar(50);
         fecha_publicacion date,
 		linea_1 varchar(2048),
 		linea_2 varchar(2048),
-		linea_3 varchar(2048),
-		linea_4 varchar(2048),
 		ruta_img varchar(1024),
 		primary key (cod_pc_seccion),
         foreign key fk_pc_usuario (id_usuario) references USUARIO (id_usuario),
