@@ -105,53 +105,76 @@
 
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
+      <!-- Logo-->
       <a class="navbar-brand fs-4" href="#">Recycle Hub</a>
-      <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <!-- Toggle Btn-->
+      <button
+        class="navbar-toggler shadow-none border-0"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar"
+        aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="sidebar offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <!-- SideBar-->
+      <div
+        class="sidebar offcanvas offcanvas-start"
+        tabindex="-1"
+        id="offcanvasNavbar"
+        aria-labelledby="offcanvasNavbarLabel"
+      >
+        <!-- SideBar Header-->
         <div class="offcanvas-header text-black border-bottom">
-          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Recycle Hub</h5>
-          <button type="button" class="btn-close btn-close-dark" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+            Recycle Hub
+          </h5>
+          <button
+            type="button"
+            class="btn-close btn-close-dark"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
         </div>
+        <!-- SideBar Body-->
         <div class="offcanvas-body d-flex flex-column flex-lg-row p-4 p-lg-0">
-            <ul
+          <ul
             class="navbar-nav justify-content-center align-items-center fs-5 flex-grow-1 pe-3"
           >
             <li class="nav-item mx-2">
-              <a class="nav-link active" aria-current="page" href="informacion.html">Home</a>
+              <a class="nav-link active" aria-current="page" href="index.html"
+                >Inicio</a
+              >
             </li>
             <li class="nav-item mx-2">
-              <a class="nav-link" href="#about">About</a>
+              <a class="nav-link" href="informacion.html">Información</a>
             </li>
             <li class="nav-item mx-2">
-              <a class="nav-link" href="#services">Services</a>
+              <a class="nav-link" href="comunidad.html">Comunidad</a>
             </li>
             <li class="nav-item mx-2">
-              <a class="nav-link" href="#recycling-info">Recycling Info</a>
+              <a class="nav-link" href="configuracion.html">Configuración</a>
             </li>
             <li class="nav-item mx-2">
-              <a class="nav-link" href="#contact">Contact</a>
+              <a class="nav-link" href="soporte.html">Soporte</a>
             </li>
             <li class="nav-item mx-2">
-              <a class="nav-link" href="configuracion.html">Settings</a>
-            </li>
-            <li class="nav-item mx-2">
-              <a class="nav-link" href="soporte.html">Help&Support</a>
+              <a class="nav-link" href="perfil.html">Perfil</a>
             </li>
           </ul>
+          <!-- Login / Sign up -->
           <div
-              class="d-flex flex-column flex-lg-row align-items-center gap-3"
+            class="d-flex flex-column flex-lg-row align-items-center gap-3"
+          >
+            <a
+              href="#signup"
+              class="text-white text-decoration-none px-3 py-1 rounded-4"
+              style="background-color: #3c5441"
+              >Iniciar Sesión</a
             >
-              <a href="#login" class="text-black">Login</a>
-              <a
-                href="#signup"
-                class="text-black text-decoration-none px-3 py-1 rounded-4"
-                style="background-color: rgba(90, 190, 40, 1)"
-                >Sign Up</a
-              >
-            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -181,7 +204,7 @@
           </select>
         </div>
         <button type="submit" class="btn btn-primary">Guardar configuración</button>
-        <button type="button" class="btn btn-secondary back-to-menu" onclick="location.href='informacion.html'">Volver al Menú Principal</button>
+        <button type="button" class="btn btn-secondary back-to-menu" onclick="location.href='index.html'">Volver al Menú Principal</button>
       </form>
     </section>
 
