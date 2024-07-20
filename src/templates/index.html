@@ -17,7 +17,7 @@
     
     <title>Document</title>
   </head>
-  <body class="vh-100 overflow-hidden">
+  <body>
     <link rel="stylesheet" href="../styles/main.css">
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -61,7 +61,7 @@
               class="navbar-nav justify-content-center align-items-center fs-5 flex-grow-1 pe-3"
             >
               <li class="nav-item mx-2">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="#">Inicio</a>
               </li>
               <li class="nav-item mx-2">
                 <a class="nav-link" href="#about">About</a>
@@ -77,18 +77,61 @@
             <div
               class="d-flex flex-column flex-lg-row align-items-center gap-3"
             >
-              <a href="#login" class="text-black">Login</a>
               <a
                 href="#signup"
-                class="text-black text-decoration-none px-3 py-1 rounded-4"
+                class="text-white text-decoration-none px-3 py-1 rounded-4"
                 style="background-color: rgba(90, 190, 40, 1)"
-                >Sign Up</a
+                >Iniciar Sesión</a
               >
             </div>
           </div>
         </div>
       </div>
     </nav>
+
+    <!-- Carousel -->
+    <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+  
+      <div class="carousel-inner">
+        <div class="carousel-item active c-item">
+          <img src="https://cdn.pixabay.com/photo/2019/11/18/08/21/bonsai-4634225_1280.jpg" class="d-block w-100 c-img" alt="Slide 1">
+          <div class="carousel-caption top-0 mt-4">
+            <p class="mt-5 fs-3 text-uppercase">Discover the hidden world</p>
+            <p class="display-1 fw-bolder text-capitalize">The Aurora Tours</p>
+            <button class="btn btn-green px-4 py-2 fs-5 mt-5">Book a tour</button>
+          </div>
+        </div>
+        <div class="carousel-item c-item">
+          <img src="https://images.unsplash.com/photo-1516466723877-e4ec1d736c8a?fit=crop&w=2134&q=100" class="d-block w-100 c-img" alt="Slide 2">
+          <div class="carousel-caption top-0 mt-4">
+            <p class="text-uppercase fs-3 mt-5">The season has arrived</p>
+            <p class="display-1 fw-bolder text-capitalize">3 available tours</p>
+            <button class="btn btn-green px-4 py-2 fs-5 mt-5">Book a tour</button>
+          </div>
+        </div>
+        <div class="carousel-item c-item">
+          <img src="https://images.unsplash.com/photo-1612686635542-2244ed9f8ddc?fit=crop&w=2070&q=100" class="d-block w-100 c-img" alt="Slide 3">
+          <div class="carousel-caption top-0 mt-4">
+            <p class="text-uppercase fs-3 mt-5">Destination activities</p>
+            <p class="display-1 fw-bolder text-capitalize">Go glacier hiking</p>
+            <button class="btn btn-green px-4 py-2 fs-5 mt-5">Book a tour</button>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#hero-carousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
 
     <main>
       <section
