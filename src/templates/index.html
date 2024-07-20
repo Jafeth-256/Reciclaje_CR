@@ -14,11 +14,11 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-    
+
     <title>Document</title>
   </head>
   <body>
-    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/main.css" />
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container">
@@ -61,16 +61,21 @@
               class="navbar-nav justify-content-center align-items-center fs-5 flex-grow-1 pe-3"
             >
               <li class="nav-item mx-2">
-                <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                <a class="nav-link active" aria-current="page" href="#"
+                  >Inicio</a
+                >
               </li>
               <li class="nav-item mx-2">
-                <a class="nav-link" href="#about">About</a>
+                <a class="nav-link" href="#about">Información</a>
               </li>
               <li class="nav-item mx-2">
-                <a class="nav-link" href="#services">Services</a>
+                <a class="nav-link" href="#services">Comunidad</a>
               </li>
               <li class="nav-item mx-2">
-                <a class="nav-link" href="#contact">Contact</a>
+                <a class="nav-link" href="#services">Contacto</a>
+              </li>
+              <li class="nav-item mx-2">
+                <a class="nav-link" href="#contact">Soporte</a>
               </li>
             </ul>
             <!-- Login / Sign up -->
@@ -80,7 +85,7 @@
               <a
                 href="#signup"
                 class="text-white text-decoration-none px-3 py-1 rounded-4"
-                style="background-color: rgba(90, 190, 40, 1)"
+                style="background-color: #3c5441"
                 >Iniciar Sesión</a
               >
             </div>
@@ -92,53 +97,202 @@
     <!-- Carousel -->
     <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
-        <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button
+          type="button"
+          data-bs-target="#hero-carousel"
+          data-bs-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#hero-carousel"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#hero-carousel"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+        ></button>
       </div>
-  
+
       <div class="carousel-inner">
         <div class="carousel-item active c-item">
-          <img src="https://cdn.pixabay.com/photo/2019/11/18/08/21/bonsai-4634225_1280.jpg" class="d-block w-100 c-img" alt="Slide 1">
+          <img
+            src="https://cdn.pixabay.com/photo/2019/11/18/08/21/bonsai-4634225_1280.jpg"
+            class="d-block w-100 c-img"
+            alt="Slide 1"
+          />
           <div class="carousel-caption top-0 mt-4">
-            <p class="mt-5 fs-3 text-uppercase">Discover the hidden world</p>
-            <p class="display-1 fw-bolder text-capitalize">The Aurora Tours</p>
-            <button class="btn btn-green px-4 py-2 fs-5 mt-5">Book a tour</button>
+            <p class="mt-5 fs-3 text-uppercase">Aprende a reciclar con</p>
+            <p class="display-1 fw-bolder text-capitalize">Recycle Hub</p>
           </div>
         </div>
         <div class="carousel-item c-item">
-          <img src="https://images.unsplash.com/photo-1516466723877-e4ec1d736c8a?fit=crop&w=2134&q=100" class="d-block w-100 c-img" alt="Slide 2">
+          <img
+            src="https://cdn.pixabay.com/photo/2016/11/22/21/32/forest-1850640_1280.jpg"
+            class="d-block w-100 c-img"
+            alt="Slide 2"
+          />
           <div class="carousel-caption top-0 mt-4">
-            <p class="text-uppercase fs-3 mt-5">The season has arrived</p>
-            <p class="display-1 fw-bolder text-capitalize">3 available tours</p>
-            <button class="btn btn-green px-4 py-2 fs-5 mt-5">Book a tour</button>
+            <p class="text-uppercase fs-3 mt-5">
+              Encuentraras la información mas relevante acerca el reciclaje
+            </p>
+            <p class="display-1 fw-bolder">Conoce el Reciclaje</p>
+            <button class="btn btn-green px-4 py-2 fs-5 mt-5">
+              Más Información
+            </button>
           </div>
         </div>
         <div class="carousel-item c-item">
-          <img src="https://images.unsplash.com/photo-1612686635542-2244ed9f8ddc?fit=crop&w=2070&q=100" class="d-block w-100 c-img" alt="Slide 3">
+          <img
+            src="https://cdn.pixabay.com/photo/2024/04/03/05/52/ai-generated-8672132_1280.jpg"
+            class="d-block w-100 c-img"
+            alt="Slide 3"
+          />
           <div class="carousel-caption top-0 mt-4">
-            <p class="text-uppercase fs-3 mt-5">Destination activities</p>
-            <p class="display-1 fw-bolder text-capitalize">Go glacier hiking</p>
-            <button class="btn btn-green px-4 py-2 fs-5 mt-5">Book a tour</button>
+            <p class="text-uppercase fs-3 mt-5">
+              Aprende Más Sobre Nuestra Comunidad
+            </p>
+            <p class="display-1 fw-bolder">Únete a Nosotros</p>
+            <button class="btn btn-green px-4 py-2 fs-5 mt-5">
+              Más Información
+            </button>
           </div>
         </div>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel" data-bs-slide="prev">
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#hero-carousel"
+        data-bs-slide="prev"
+      >
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
       </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#hero-carousel" data-bs-slide="next">
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#hero-carousel"
+        data-bs-slide="next"
+      >
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
       </button>
     </div>
 
-    <main>
-      <section
-        class="w-100 vh-100 d-flex flex-column justify-content-center align-items-center fs-1"
-      >
-        <h1 style="font-size: 1.5em">Welcome to Recycle Hub</h1>
-      </section>
-    </main>
+    <!-- Cards de los goals -->
+
+    <div class="container py-5 cards-background">
+      <h1 class="Objetivos">Objetivos Principales</h1>
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-4">
+          <div class="card mx-auto my-5">
+            <img
+              src="../assets/images/reducir.png"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Reducir</h5>
+              <hr />
+              <p class="card-text">
+                Minimizar el uso de productos innecesarios y optar por opciones
+                con menos embalaje para disminuir significativamente la cantidad
+                de residuos generados diariamente para asi tener un planeta mas
+                limpio.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-4">
+          <div class="card mx-auto my-5">
+            <img
+              src="../assets/images/reciclar.png"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Reciclar</h5>
+              <hr />
+              <p class="card-text">
+                Dar una segunda vida a los objetos y materiales, encontrando
+                nuevas maneras de utilizarlos, para evitar desecharlos y reducir
+                la demanda de nuevos productos en el mercado.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-4">
+          <div class="card mx-auto my-5">
+            <img
+              src="../assets/images/Reutilizar.png"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Reutilizar</h5>
+              <hr />
+              <p class="card-text">
+                Transformar materiales usados en nuevos productos a través de
+                procesos industriales y manuales, conservando así recursos
+                naturales y disminuyendo la contaminación ambiental.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feedback  -->
+
+    <div class="container">
+      <div class="content">
+        <div class="left-side">
+          <div class="address details">
+            <i class="fas fa-map-marker-alt"></i>
+            <div class="topic">Dirección</div>
+            <div class="text-one">Aserri, Calle 19</div>
+            <div class="text-two">San Jose, Costa Rica</div>
+          </div>
+          <div class="phone details">
+            <i class="fas fa-phone-alt"></i>
+            <div class="topic">Teléfono</div>
+            <div class="text-one">+506 1111 1111</div>
+            <div class="text-two">+506 1111 1111</div>
+          </div>
+          <div class="email details">
+            <i class="fas fa-envelope"></i>
+            <div class="topic">Email</div>
+            <div class="text-one">jafeth@gmail.com</div>
+            <div class="text-two">ariana@gmail.com</div>
+          </div>
+        </div>
+        <div class="right-side">
+          <div class="topic-text">Envía tu feedback aquí</div>
+          <p>
+            Si tienes alguna sugerencia o duda respecto a la información o sobre
+            la pagina no dude ne hacérnoslo saber.
+          </p>
+          <form action="#">
+            <div class="input-box">
+              <input type="text" placeholder="Ingresa tu nombre" />
+            </div>
+            <div class="input-box">
+              <input type="text" placeholder="Ingresa tu correo" />
+            </div>
+            <div class="input-box message-box">
+              <textarea placeholder="Escribe tu mensaje"></textarea>
+            </div>
+            <div class="button">
+              <input type="button" value="Enviar" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
