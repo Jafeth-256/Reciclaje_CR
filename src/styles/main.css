@@ -1,3 +1,4 @@
+/* Body */
 body{
   background-color: rgb(255, 255, 255);
   background-blend-mode: multiply;
@@ -13,15 +14,35 @@ body{
   }
 }
 
+/* Header */
 h1{
   color: rgba(90, 190, 40, 1);
 }
 
 .bg-body-tertiary {
   --bs-bg-opacity: 1;
-  background-color: rgba(198, 235, 183, 1) !important;
+  background-color: e1e1e1 !important;
 }
 
 .fs-4 {
-  color: rgb(74, 139, 41);
+  color: #3c5441;
+}
+
+
+/* Carrusel */
+.c-item {
+  height: 40rem;
+}
+
+.c-img {
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.6);
+}
+
+.btn-green {
+  background-color: white; 
+  color: white; 
+  border: none; 
+  transition: background-color 0.3s ease; 
 }
