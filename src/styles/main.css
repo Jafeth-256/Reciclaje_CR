@@ -1,4 +1,5 @@
 /* Body */
+/* Body */
 body{
   background-color: rgb(255, 255, 255);
   background-blend-mode: multiply;
@@ -25,24 +26,5 @@ h1{
 }
 
 .fs-4 {
-  color: #3c5441;
-}
-
-
-/* Carrusel */
-.c-item {
-  height: 40rem;
-}
-
-.c-img {
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(0.6);
-}
-
-.btn-green {
-  background-color: white; 
-  color: white; 
-  border: none; 
-  transition: background-color 0.3s ease; 
+  color: rgb(74, 139, 41);
 }
