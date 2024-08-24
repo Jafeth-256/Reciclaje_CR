@@ -57,6 +57,27 @@
     #home {
       display: none; /* Ocultar la sección de inicio por defecto */
     }
+  .c-item {
+   height: 50rem;
+  }
+
+  .c-img {
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.6);
+  }
+
+  .btn-green {
+  background-color: #3c5441; 
+  color: white; 
+  border: none; 
+  transition: background-color 0.3s ease; 
+  }
+
+  .btn-green:hover {
+  background-color: #3c5441; 
+  }
+
   </style>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -239,8 +260,35 @@
       </div>
     </div>
   </nav>
+<!-- Carousel -->
+<div id="hero-carousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button
+      type="button"
+      data-bs-target="#hero-carousel"
+      data-bs-slide-to="0"
+      class="active"
+      aria-current="true"
+      aria-label="Slide 1"
+    ></button>
+  </div>
+
+  <div class="carousel-inner">
+    <div class="carousel-item active c-item">
+      <img
+        src="https://cdn.pixabay.com/photo/2019/11/18/08/21/bonsai-4634225_1280.jpg"
+        class="d-block w-100 c-img"
+        alt="Slide 1"
+      />
+      <div class="carousel-caption top-0 mt-4">
+        <p class="mt-5 fs-3 text-uppercase">Ayuda y soporte con</p>
+        <p class="display-1 fw-bolder text-capitalize">Recycle Hub</p>
+      </div>
+    </div>
+    </div>
 
   <main class="container mt-4">
+    
     <section id="home">
       <h1 class="text-center">Welcome to Recycle Hub</h1>
     </section>
@@ -283,9 +331,8 @@
       <div class="more-info p-4">
         <p>Para obtener más información sobre nuestros servicios, políticas y otros temas, puedes visitar nuestras secciones específicas en el sitio web o contactarnos directamente.</p>
         <div class="d-flex flex-column flex-md-row align-items-center mt-4">
-          <a href="#" class="btn btn-outline-primary me-md-3 mb-2 mb-md-0">Servicios</a>
           <a href="#" class="btn btn-outline-primary me-md-3 mb-2 mb-md-0">Políticas</a>
-          <a href="#" class="btn btn-outline-primary mb-2 mb-md-0">Contacto</a>
+          <a href="perfil.html" class="btn btn-outline-primary mb-2 mb-md-0">Contacto</a>
         </div>
       </div>
     </section>
@@ -297,6 +344,8 @@
   </footer>
 </body>
 </html>
+
+
 
 
 
