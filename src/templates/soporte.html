@@ -57,6 +57,7 @@
     #home {
       display: none; /* Ocultar la sección de inicio por defecto */
     }
+    /* Carrusel */
   .c-item {
    height: 50rem;
   }
@@ -77,6 +78,10 @@
   .btn-green:hover {
   background-color: #3c5441; 
   }
+
+  .accordion-body {
+      text-align: justify;
+    }
 
   </style>
   <script>
@@ -304,6 +309,7 @@
         <div class="answer">
           Puedes encontrar puntos de reciclaje cercanos en nuestro sitio web en la sección de "Puntos de Reciclaje" o contactar con tu ayuntamiento local para obtener más información.
         </div>
+        Si deseas agregar tu pregunta puedes realizarla mediante el siguiente link: <a href="preguntasf.html">Ir a Perfil</a>
       </div>
     </section>
 
@@ -330,13 +336,50 @@
       <h2 class="more-info-header">Más Información</h2>
       <div class="more-info p-4">
         <p>Para obtener más información sobre nuestros servicios, políticas y otros temas, puedes visitar nuestras secciones específicas en el sitio web o contactarnos directamente.</p>
-        <div class="d-flex flex-column flex-md-row align-items-center mt-4">
-          <a href="#" class="btn btn-outline-primary me-md-3 mb-2 mb-md-0">Políticas</a>
-          <a href="perfil.html" class="btn btn-outline-primary mb-2 mb-md-0">Contacto</a>
+
+          <div class="accordion" id="accordionPanelsStayOpenExample">
+            <div class="accordion-item">
+            <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                    Servicios
+            </button>
+            </h2>
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+            <div class="accordion-body">
+            <strong></strong> Las empresas de recolección de basura y reciclaje ofrecen una amplia gama de servicios para gestionar los residuos de manera eficiente y sostenible. Entre estos servicios se incluyen la recolección de residuos sólidos, tanto domésticos como comerciales e industriales, asegurando el manejo adecuado de desechos generales y específicos. Además, brindan servicios de recolección de materiales reciclables, como papel, cartón, plásticos, vidrio y metales, promoviendo la reutilización y el reciclaje de estos materiales. También se ocupan del compostaje de residuos orgánicos, convirtiendo restos de alimentos y otros desechos biodegradables en compost para fertilizar suelos.En cuanto a los residuos peligrosos, estas empresas gestionan de manera especializada productos químicos, electrónicos, neumáticos y baterías, garantizando su disposición segura y adecuada. Ofrecen servicios de reciclaje especializado y gestión de residuos voluminosos, como muebles y electrodomésticos, así como de residuos de construcción y demolición. Además, proporcionan asesoría y consultoría en la gestión de residuos, educación y capacitación sobre prácticas de reciclaje, y servicios de recogida programada para adaptar la recolección a las necesidades específicas de cada cliente. Estos servicios no solo contribuyen a la limpieza y el orden en las comunidades y empresas, sino que también fomentan prácticas ambientales responsables y sostenibles.
+            </div>
+            </div>
+            </div>
+            <div class="accordion-item">
+            <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                    Políticas
+            </button>
+            </h2>
+            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+            <div class="accordion-body">
+            <strong></strong> 
+            Las políticas de una empresa de recolección de basura y reciclaje son fundamentales para garantizar la eficiencia en la gestión de residuos y el cumplimiento con las normativas ambientales y de salud pública. Estas políticas establecen procedimientos claros para la segregación y reciclaje de residuos, promoviendo la separación adecuada de materiales reciclables, orgánicos y no reciclables. Se definen horarios y rutas de recolección precisos para asegurar un servicio puntual y regular, y se establecen normas rigurosas para el manejo seguro de los residuos, protegiendo tanto a los empleados como al público. Además, se asegura el cumplimiento de todas las leyes y regulaciones locales, regionales y nacionales relacionadas con la gestión de residuos. La empresa fomenta prácticas ambientales sostenibles, como la reducción de residuos en la fuente y la minimización del impacto ambiental, y promueve la educación y la conciencia entre los clientes mediante programas informativos y campañas de sensibilización. También se implementan mecanismos para la revisión y mejora continua de los procesos, asegurando la eficacia y la adaptación a nuevas necesidades. Por último, se establecen procedimientos específicos para el manejo de residuos especiales, como los peligrosos, electrónicos y voluminosos, garantizando su disposición adecuada según las normativas especializadas.
+            </div>
+            </div>
+            </div>
+            <div class="accordion-item">
+            <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                    Contacto
+            </button>
+            </h2>
+            <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+            <div class="accordion-body">
+            <strong></strong> Si se desea ingresar al contacto se puede realizar mediante el siguiente link: <a href="perfil.html">Ir a Perfil</a>
+            </div>
+            </div>
+            </div>
+            </div>
         </div>
       </div>
     </section>
-    <button type="button" class="btn btn-secondary back-to-menu" onclick="location.href='index.html'">Volver al Menú Principal</button>
+  <center> <button type="button" class="btn btn-secondary back-to-menu" onclick="location.href='index.html'">Volver al Menú Principal</button>  </center>
   </main>
 
   <footer class="bg-light text-center p-4">

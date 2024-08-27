@@ -1,11 +1,8 @@
-
 CREATE DATABASE APPWEB;
 USE APPWEB;
-
-CREATE USER 'ADMIN'@'%' IDENTIFIED BY 'PASS';
-GRANT ALL PRIVILEGES ON APPWEEP .* TO 'USUARIO'@'%';
+CREATE USER IF NOT EXISTS 'ADMIN'@'%' IDENTIFIED BY 'PASS';
+GRANT ALL PRIVILEGES ON APPWEB.* TO 'ADMIN'@'%'; 
 FLUSH PRIVILEGES;
-
 DROP SCHEMA APPWEB;
 
 CREATE TABLE APPWEB.USUARIO (
@@ -95,7 +92,7 @@ CREATE TABLE APPWEB.TAB_INFO_SECCION(
         ('ES', 'Enlaces adicionales');
         
 	CREATE TABLE APPWEB.TAB_preguntas_frecuentes(
-		id_pregunta int null auto_increment,
+		id_pregunta int unique auto_increment,
         id_usuario int,
         titulo varchar (40),
         linea1 varchar(1024),
@@ -114,3 +111,5 @@ CREATE TABLE APPWEB.TAB_INFO_SECCION(
             mensaje varchar(1024),
             primary key (id_formulario),
             foreign key fk_fc_cod_as (cod_as) references tab_ayuda_soporte(cod_as));
+
+            
