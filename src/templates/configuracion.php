@@ -5,85 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="../styles/main.css">
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden; /* Asegura que no haya scroll horizontal */
-    }
-    main {
-      min-height: 100vh; /* Asegura que el contenido mínimo ocupe toda la altura de la vista */
-      padding: 20px;
-    }
-    .faq, .more-info {
-      background-color: #f8f9fa;
-      border-radius: 8px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    .faq .question {
-      color: #007bff;
-      font-weight: bold;
-    }
-    .faq .answer {
-      margin-top: 10px;
-      line-height: 1.6;
-    }
-    .more-info {
-      background-color: #ffffff;
-      border: 1px solid #dee2e6;
-    }
-    .more-info p {
-      line-height: 1.6;
-    }
-    .more-info-header {
-      color: rgba(90, 190, 40, 1);
-      margin-bottom: 20px;
-      font-weight: bold;
-    }
-    .btn-outline-primary {
-      color: rgba(90, 190, 40, 1);
-      border-color: rgba(90, 190, 40, 1);
-    }
-    .btn-outline-primary:hover {
-      background-color: rgba(90, 190, 40, 0.1);
-    }
-    section {
-      padding: 20px;
-      margin-bottom: 20px;
-    }
-    #home {
-      display: none; /* Ocultar la sección de inicio por defecto */
-    }
-    /* Carrusel */
-  .c-item {
-   height: 50rem;
-  }
-
-  .c-img {
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(0.6);
-  }
-
-  .btn-green {
-  background-color: #3c5441; 
-  color: white; 
-  border: none; 
-  transition: background-color 0.3s ease; 
-  }
-
-  .btn-green:hover {
-  background-color: #3c5441; 
-  }
-
-  .accordion-body {
-      text-align: justify;
-    }
-
-  </style>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       const languageSelector = document.getElementById("language");
@@ -113,10 +34,7 @@
             highContrast: "High Contrast",
             largeFont: "Large Font",
             saveSettings: "Save Settings",
-            backToMenu: "Back to Main Menu",
-            faq: "Frequently Asked Questions",
-            contactForm: "Contact Form",
-            moreInfo: "More Information"
+            backToMenu: "Back to Main Menu"
           },
           es: {
             home: "Inicio",
@@ -134,10 +52,7 @@
             highContrast: "Alto contraste",
             largeFont: "Fuente grande",
             saveSettings: "Guardar configuración",
-            backToMenu: "Volver al Menú Principal",
-            faq: "Preguntas Frecuentes",
-            contactForm: "Formulario de Contacto",
-            moreInfo: "Más Información"
+            backToMenu: "Volver al Menú Principal"
           }
         };
 
@@ -157,9 +72,6 @@
         document.querySelector("#accessibility option[value='large-font']").textContent = texts[lang].largeFont;
         document.querySelector("button[type='submit']").textContent = texts[lang].saveSettings;
         document.querySelector("button.back-to-menu").textContent = texts[lang].backToMenu;
-        document.querySelector("h2.faq-header").textContent = texts[lang].faq;
-        document.querySelector("h2.contact-header").textContent = texts[lang].contactForm;
-        document.querySelector("h2.more-info-header").textContent = texts[lang].moreInfo;
       }
 
       function showSection(id) {
@@ -183,12 +95,14 @@
         showSection("home");
       });
 
-      showSection("faq"); // Muestra la sección de Preguntas Frecuentes al cargar la página
+      showSection("settings"); // Muestra la sección de configuración al cargar la página
     });
   </script>
-  <title>Recycle Hub - Help & Support</title>
+  <title>Recycle Hub</title>
 </head>
-<body>
+<body class="vh-100 overflow-hidden">
+  <link rel="stylesheet" href="../styles/main.css">
+
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
       <!-- Logo-->
@@ -230,24 +144,24 @@
             class="navbar-nav justify-content-center align-items-center fs-5 flex-grow-1 pe-3"
           >
             <li class="nav-item mx-2">
-              <a class="nav-link active" aria-current="page" href="index.html"
+              <a class="nav-link active" aria-current="page" href="index.php"
                 >Inicio</a
               >
             </li>
             <li class="nav-item mx-2">
-              <a class="nav-link" href="informacion.html">Información</a>
+              <a class="nav-link" href="informacion.php">Información</a>
             </li>
             <li class="nav-item mx-2">
-              <a class="nav-link" href="comunidad.html">Comunidad</a>
+              <a class="nav-link" href="comunidad.php">Comunidad</a>
             </li>
             <li class="nav-item mx-2">
-              <a class="nav-link" href="configuracion.html">Configuración</a>
+              <a class="nav-link" href="configuracion.php">Configuración</a>
             </li>
             <li class="nav-item mx-2">
-              <a class="nav-link" href="soporte.html">Soporte</a>
+              <a class="nav-link" href="soporte.php">Soporte</a>
             </li>
             <li class="nav-item mx-2">
-              <a class="nav-link" href="perfil.html">Perfil</a>
+              <a class="nav-link" href="perfil.php">Perfil</a>
             </li>
           </ul>
           <!-- Login / Sign up -->
@@ -265,78 +179,87 @@
       </div>
     </div>
   </nav>
-<!-- Carousel -->
-<div id="hero-carousel" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-indicators">
-    <button
-      type="button"
-      data-bs-target="#hero-carousel"
-      data-bs-slide-to="0"
-      class="active"
-      aria-current="true"
-      aria-label="Slide 1"
-    ></button>
-  </div>
 
-  <div class="carousel-inner">
-    <div class="carousel-item active c-item">
-      <img
-        src="https://cdn.pixabay.com/photo/2019/11/18/08/21/bonsai-4634225_1280.jpg"
-        class="d-block w-100 c-img"
-        alt="Slide 1"
-      />
-      <div class="carousel-caption top-0 mt-4">
-        <p class="mt-5 fs-3 text-uppercase">Preguntas Frecuentes con</p>
-        <p class="display-1 fw-bolder text-capitalize">Recycle Hub</p>
-      </div>
-    </div>
-    </div>
-
-  <main class="container mt-4">
-    
-    <section id="home">
-      <h1 class="text-center">Welcome to Recycle Hub</h1>
-    </section>
-
-    <section id="faq" class="container mt-5">
-      <h2 class="faq-header">Preguntas Frecuentes</h2>
-      <div class="faq p-4">
-        <div class="question">¿Cómo puedo reciclar correctamente?</div>
-        <div class="answer">
-          Para reciclar correctamente, asegúrate de separar los materiales reciclables de los no reciclables. Consulta las pautas locales para conocer qué materiales se aceptan y cómo deben prepararse.
-        </div>
-        <div class="question">¿Dónde puedo encontrar puntos de reciclaje cerca de mí?</div>
-        <div class="answer">
-          Puedes encontrar puntos de reciclaje cercanos en nuestro sitio web en la sección de "Puntos de Reciclaje" o contactar con tu ayuntamiento local para obtener más información.
-        </div>
-        Si deseas agregar tu pregunta puedes realizarla mediante el siguiente link: <a href="preguntasf.html">Ir a Perfil</a>
-      </div>
-    </section>
-
-    <section id="contact" class="container mt-5">
-      <h2 class="contact-header">Crea tu pregunta</h2>
-      <form action="enviar_pregunta.php" method="POST">
+  <main>
+    <section id="settings" class="container mt-5">
+      <h2 class="settings-header">Configuración</h2>
+      <form>
         <div class="mb-3">
-          <label for="name" class="form-label">Nombre</label>
-          <input type="text" class="form-control" id="name" name="name" required />
+          <label for="language" class="form-label">Preferencia de idioma</label>
+          <select class="form-select" id="language">
+            <option value="es" selected>Español</option>
+            <option value="en">English</option>
+          </select>
         </div>
         <div class="mb-3">
-          <label for="email" class="form-label">Correo Electrónico</label>
-          <input type="email" class="form-control" id="email" name="email" required />
+          <label for="notifications" class="form-label">Habilitar notificaciones</label>
+          <input type="checkbox" class="form-check-input" id="notifications">
         </div>
         <div class="mb-3">
-          <label for="message" class="form-label">Mensaje</label>
-          <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+          <label for="accessibility" class="form-label">Opciones de accesibilidad</label>
+          <select class="form-select" id="accessibility">
+            <option value="default" selected>Predeterminado</option>
+            <option value="high-contrast">Alto contraste</option>
+            <option value="large-font">Fuente grande</option>
+          </select>
         </div>
-        <button type="submit" class="btn btn-primary">Enviar</button>
+        <button type="submit" class="btn btn-primary">Guardar configuración</button>
+        <button type="button" class="btn btn-secondary back-to-menu" onclick="location.href='index.html'">Volver al Menú Principal</button>
       </form>
     </section>
 
-  <center> <button type="button" class="btn btn-secondary back-to-menu" onclick="location.href='index.html'">Volver al Menú Principal</button>  </center>
-  </main>
+    <section id="home" class="w-100 vh-100 d-flex flex-column justify-content-center align-items-center fs-1" style="display:none;">
+    </section>
 
-  <footer class="bg-light text-center p-4">
-    <p>&copy; 2024 Recycle Hub. Todos los derechos reservados.</p>
-  </footer>
+    <section id="about" class="container mt-5" style="display:none;">
+      <h2>Acerca de</h2>
+      <p>Información sobre Recycle Hub.</p>
+    </section>
+
+    <section id="services" class="container mt-5" style="display:none;">
+      <h2>Servicios</h2>
+      <p>Descripción de los servicios ofrecidos por Recycle Hub.</p>
+    </section>
+
+    <section id="contact" class="container mt-5" style="display:none;">
+      <h2>Contacto</h2>
+      <p>Información de contacto de Recycle Hub.</p>
+    </section>
+
+    <section id="login" class="container mt-5" style="display:none;">
+      <h2>Iniciar sesión</h2>
+      <form>
+        <div class="mb-3">
+          <label for="loginEmail" class="form-label">Correo electrónico</label>
+          <input type="email" class="form-control" id="loginEmail">
+        </div>
+        <div class="mb-3">
+          <label for="loginPassword" class="form-label">Contraseña</label>
+          <input type="password" class="form-control" id="loginPassword">
+        </div>
+        <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+      </form>
+    </section>
+
+    <section id="signup" class="container mt-5" style="display:none;">
+      <h2>Registrarse</h2>
+      <form>
+        <div class="mb-3">
+          <label for="signupName" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="signupName">
+        </div>
+        <div class="mb-3">
+          <label for="signupEmail" class="form-label">Correo electrónico</label>
+          <input type="email" class="form-control" id="signupEmail">
+        </div>
+        <div class="mb-3">
+          <label for="signupPassword" class="form-label">Contraseña</label>
+          <input type="password" class="form-control" id="signupPassword">
+        </div>
+        <button type="submit" class="btn btn-primary">Registrarse</button>
+      </form>
+    </section>
+  </main>
 </body>
 </html>
+

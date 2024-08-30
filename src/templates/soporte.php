@@ -76,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="../../styles/main.css">
+  <link rel="stylesheet" href="../styles/main.css">
   <style>
     body {
       margin: 0;
@@ -263,7 +263,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
       <!-- Logo-->
-      <a class="navbar-brand fs-4" href="#">Recycle Hub</a>
+      <a class="navbar-brand fs-4" href="">Recycle Hub</a>
       <!-- Toggle Btn-->
       <button
         class="navbar-toggler shadow-none border-0"
@@ -276,109 +276,106 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <!-- Sidebar -->
-      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar">
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Recycle Hub</h5>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="offcanvas"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div class="offcanvas-body">
-          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <li class="nav-item">
-              <a class="nav-link home" href="#home">Inicio</a>
+    
+        <!-- SideBar Body-->
+        <div class="offcanvas-body d-flex flex-column flex-lg-row p-4 p-lg-0">
+          <ul
+            class="navbar-nav justify-content-center align-items-center fs-5 flex-grow-1 pe-3"
+          >
+            <li class="nav-item mx-2">
+              <a class="nav-link active" aria-current="page" href="index.php"
+                >Inicio</a
+              >
             </li>
-            <li class="nav-item">
-              <a class="nav-link about" href="#about">Acerca de</a>
+            <li class="nav-item mx-2">
+              <a class="nav-link" href="informacion.php">Información</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link services" href="#services">Servicios</a>
+            <li class="nav-item mx-2">
+              <a class="nav-link" href="comunidad.php">Comunidad</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link contact" href="#contact">Contacto</a>
+            <li class="nav-item mx-2">
+              <a class="nav-link" href="configuracion.php">Configuración</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link settings" href="#settings">Configuración</a>
+            <li class="nav-item mx-2">
+              <a class="nav-link" href="soporte.php">Soporte</a>
             </li>
-            <li class="nav-item">
-              <a class="btn btn-outline-primary login" href="login.php">Iniciar sesión</a>
-            </li>
-            <li class="nav-item">
-              <a class="btn btn-outline-primary signup" href="signup.php">Registrarse</a>
+            <li class="nav-item mx-2">
+              <a class="nav-link" href="perfil.php">Perfil</a>
             </li>
           </ul>
+          <!-- Login / Sign up -->
+          <div
+            class="d-flex flex-column flex-lg-row align-items-center gap-3"
+          >
+            <a
+              href="#signup"
+              class="text-white text-decoration-none px-3 py-1 rounded-4"
+              style="background-color: #3c5441"
+              >Iniciar Sesión</a
+            >
+          </div>
         </div>
       </div>
     </div>
   </nav>
 
-  <main>
+  <!-- Carousel -->
+<div id="hero-carousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button
+      type="button"
+      data-bs-target="#hero-carousel"
+      data-bs-slide-to="0"
+      class="active"
+      aria-current="true"
+      aria-label="Slide 1"
+    ></button>
+  </div>
+
+  <div class="carousel-inner">
+    <div class="carousel-item active c-item">
+      <img
+        src="https://cdn.pixabay.com/photo/2019/11/18/08/21/bonsai-4634225_1280.jpg"
+        class="d-block w-100 c-img"
+        alt="Slide 1"
+      />
+      <div class="carousel-caption top-0 mt-4">
+        <p class="mt-5 fs-3 text-uppercase">Ayuda y soporte con</p>
+        <p class="display-1 fw-bolder text-capitalize">Recycle Hub</p>
+      </div>
+    </div>
+    </div>
+
+  <main class="container mt-4">
     <!-- Sección de Inicio -->
+
     <section id="home">
-      <h1>Bienvenido a Recycle Hub</h1>
-      <p>La plataforma para la gestión de residuos sólidos.</p>
+      <h1 class="text-center">Welcome to Recycle Hub</h1>
     </section>
 
     <!-- Sección de Preguntas Frecuentes -->
-    <section id="faq" class="faq">
+    <section id="faq" class="container mt-5">
       <h2 class="faq-header">Preguntas Frecuentes</h2>
-      <div class="accordion" id="accordionExample">
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingOne">
-            <button
-              class="accordion-button"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseOne"
-              aria-expanded="true"
-              aria-controls="collapseOne"
-            >
-              ¿Qué es Recycle Hub?
-            </button>
-          </h2>
-          <div
-            id="collapseOne"
-            class="accordion-collapse collapse show"
-            aria-labelledby="headingOne"
-            data-bs-parent="#accordionExample"
-          >
-            <div class="accordion-body">
-              Recycle Hub es una plataforma dedicada a la gestión y promoción del reciclaje de residuos sólidos.
-            </div>
-          </div>
+      <div class="faq p-4">
+        <div class="question">¿Cómo puedo reciclar correctamente?</div>
+        <div class="answer">
+          Para reciclar correctamente, asegúrate de separar los materiales reciclables de los no reciclables. Consulta las pautas locales para conocer qué materiales se aceptan y cómo deben prepararse.
         </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingTwo">
-            <button
-              class="accordion-button collapsed"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseTwo"
-              aria-expanded="false"
-              aria-controls="collapseTwo"
-            >
-              ¿Cómo puedo reportar problemas con el servicio?
-            </button>
-          </h2>
-          <div
-            id="collapseTwo"
-            class="accordion-collapse collapse"
-            aria-labelledby="headingTwo"
-            data-bs-parent="#accordionExample"
-          >
-            <div class="accordion-body">
-              Puedes reportar problemas utilizando nuestro formulario de contacto en la sección de contacto.
-            </div>
-          </div>
+        <div class="question">¿Dónde puedo encontrar puntos de reciclaje cerca de mí?</div>
+        <div class="answer">
+          Puedes encontrar puntos de reciclaje cercanos en nuestro sitio web en la sección de "Puntos de Reciclaje" o contactar con tu ayuntamiento local para obtener más información.
         </div>
+        Si deseas agregar tu pregunta puedes realizarla mediante el siguiente link: <a href="preguntasf.php">Ir a Preguntas</a>
       </div>
     </section>
+  
 
     <!-- Sección de Contacto -->
+
+    <section id="more-info" class="more-info">
+      <h2 class="more-info-header">Consultas del público </h2>
+      <p>En esta sección, encontrarás una forma de hacer consultas de todo tipo.</p>
+    </section>
 <form action="enviar_contacto.php" method="post">
 <div class="form-group">
 <label for="cod_as">Seleccione una opción:</label>
@@ -411,10 +408,58 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
  
     <!-- Sección de Más Información -->
-    <section id="more-info" class="more-info">
+    <section id="more-info" class="container mt-5">
       <h2 class="more-info-header">Más Información</h2>
-      <p>En esta sección, encontrarás información adicional sobre nuestros servicios y cómo puedes contribuir al reciclaje.</p>
+      <div class="more-info p-4">
+        <p>Para obtener más información sobre nuestros servicios, políticas y otros temas, puedes visitar nuestras secciones específicas en el sitio web o contactarnos directamente.</p>
+
+          <div class="accordion" id="accordionPanelsStayOpenExample">
+            <div class="accordion-item">
+            <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                    Servicios
+            </button>
+            </h2>
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+            <div class="accordion-body">
+            <strong></strong> Las empresas de recolección de basura y reciclaje ofrecen una amplia gama de servicios para gestionar los residuos de manera eficiente y sostenible. Entre estos servicios se incluyen la recolección de residuos sólidos, tanto domésticos como comerciales e industriales, asegurando el manejo adecuado de desechos generales y específicos. Además, brindan servicios de recolección de materiales reciclables, como papel, cartón, plásticos, vidrio y metales, promoviendo la reutilización y el reciclaje de estos materiales. También se ocupan del compostaje de residuos orgánicos, convirtiendo restos de alimentos y otros desechos biodegradables en compost para fertilizar suelos.En cuanto a los residuos peligrosos, estas empresas gestionan de manera especializada productos químicos, electrónicos, neumáticos y baterías, garantizando su disposición segura y adecuada. Ofrecen servicios de reciclaje especializado y gestión de residuos voluminosos, como muebles y electrodomésticos, así como de residuos de construcción y demolición. Además, proporcionan asesoría y consultoría en la gestión de residuos, educación y capacitación sobre prácticas de reciclaje, y servicios de recogida programada para adaptar la recolección a las necesidades específicas de cada cliente. Estos servicios no solo contribuyen a la limpieza y el orden en las comunidades y empresas, sino que también fomentan prácticas ambientales responsables y sostenibles.
+            </div>
+            </div>
+            </div>
+            <div class="accordion-item">
+            <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                    Políticas
+            </button>
+            </h2>
+            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+            <div class="accordion-body">
+            <strong></strong> 
+            Las políticas de una empresa de recolección de basura y reciclaje son fundamentales para garantizar la eficiencia en la gestión de residuos y el cumplimiento con las normativas ambientales y de salud pública. Estas políticas establecen procedimientos claros para la segregación y reciclaje de residuos, promoviendo la separación adecuada de materiales reciclables, orgánicos y no reciclables. Se definen horarios y rutas de recolección precisos para asegurar un servicio puntual y regular, y se establecen normas rigurosas para el manejo seguro de los residuos, protegiendo tanto a los empleados como al público. Además, se asegura el cumplimiento de todas las leyes y regulaciones locales, regionales y nacionales relacionadas con la gestión de residuos. La empresa fomenta prácticas ambientales sostenibles, como la reducción de residuos en la fuente y la minimización del impacto ambiental, y promueve la educación y la conciencia entre los clientes mediante programas informativos y campañas de sensibilización. También se implementan mecanismos para la revisión y mejora continua de los procesos, asegurando la eficacia y la adaptación a nuevas necesidades. Por último, se establecen procedimientos específicos para el manejo de residuos especiales, como los peligrosos, electrónicos y voluminosos, garantizando su disposición adecuada según las normativas especializadas.
+            </div>
+            </div>
+            </div>
+            <div class="accordion-item">
+            <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                    Contacto
+            </button>
+            </h2>
+            <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+            <div class="accordion-body">
+            <strong></strong> Si se desea ingresar al contacto se puede realizar mediante el siguiente link: <a href="perfil.php">Ir a Perfil</a>
+            </div>
+            </div>
+            </div>
+            </div>
+        </div>
+      </div>
     </section>
+  <center> <button type="button" class="btn btn-secondary back-to-menu" onclick="location.href='index.html'">Volver al Menú Principal</button>  </center>
   </main>
+
+  <footer class="bg-light text-center p-4">
+    <p>&copy; 2024 Recycle Hub. Todos los derechos reservados.</p>
+  </footer>
 </body>
 </html>

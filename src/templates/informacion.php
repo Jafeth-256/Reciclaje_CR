@@ -61,24 +61,24 @@
               class="navbar-nav justify-content-center align-items-center fs-5 flex-grow-1 pe-3"
             >
               <li class="nav-item mx-2">
-                <a class="nav-link active" aria-current="page" href="index.html"
+                <a class="nav-link active" aria-current="page" href="index.php"
                   >Inicio</a
                 >
               </li>
               <li class="nav-item mx-2">
-                <a class="nav-link" href="informacion.html">Información</a>
+                <a class="nav-link" href="informacion.php">Información</a>
               </li>
               <li class="nav-item mx-2">
-                <a class="nav-link" href="comunidad.html">Comunidad</a>
+                <a class="nav-link" href="comunidad.php">Comunidad</a>
               </li>
               <li class="nav-item mx-2">
-                <a class="nav-link" href="configuracion.html">Configuración</a>
+                <a class="nav-link" href="configuracion.php">Configuración</a>
               </li>
               <li class="nav-item mx-2">
-                <a class="nav-link" href="soporte.html">Soporte</a>
+                <a class="nav-link" href="soporte.php">Soporte</a>
               </li>
               <li class="nav-item mx-2">
-                <a class="nav-link" href="perfil.html">Perfil</a>
+                <a class="nav-link" href="perfil.php">Perfil</a>
               </li>
             </ul>
             <!-- Login / Sign up -->
