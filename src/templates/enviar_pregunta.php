@@ -1,45 +1,72 @@
 <?php
+include '../../DAL/Conexion.php';
+
 // Definir variables y inicializar con valores vacíos
-$name = $email = $message = "";
-$name_err = $email_err = $message_err = "";
+$titulo = $linea1 = $linea2 = $respuesta1 = $respuesta2 = "";
+$titulo_err = $linea1_err = $linea2_err = $respuesta1_err = $respuesta2_err = "";
 
 // Procesar datos del formulario cuando se envía
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Validar nombre
-    if (empty(trim($_POST["name"]))) {
-        $name_err = "Por favor, ingrese su nombre.";
+
+    // Validar los campos del formulario
+    if (empty(trim($_POST["titulo"]))) {
+        $titulo_err = "Por favor, ingrese un título.";
     } else {
-        $name = trim($_POST["name"]);
+        $titulo = trim($_POST["titulo"]);
     }
 
-    // Validar correo electrónico
-    if (empty(trim($_POST["email"]))) {
-        $email_err = "Por favor, ingrese su correo electrónico.";
-    } elseif (!filter_var(trim($_POST["email"]), FILTER_VALIDATE_EMAIL)) {
-        $email_err = "El correo electrónico ingresado no es válido.";
+    if (empty(trim($_POST["linea1"]))) {
+        $linea1_err = "Por favor, ingrese la primera línea de la pregunta.";
     } else {
-        $email = trim($_POST["email"]);
+        $linea1 = trim($_POST["linea1"]);
     }
 
-    // Validar mensaje
-    if (empty(trim($_POST["message"]))) {
-        $message_err = "Por favor, ingrese su mensaje.";
+    if (empty(trim($_POST["linea2"]))) {
+        $linea2_err = "Por favor, ingrese la segunda línea de la pregunta.";
     } else {
-        $message = trim($_POST["message"]);
+        $linea2 = trim($_POST["linea2"]);
     }
 
-    // Verificar si no hay errores antes de enviar el correo
-    if (empty($name_err) && empty($email_err) && empty($message_err)) {
-        // Enviar correo (configura el servidor de correo para enviar el mensaje)
-        $to = "tu-email@dominio.com"; // Cambia esto por tu dirección de correo
-        $subject = "Nuevo mensaje de contacto";
-        $email_body = "Nombre: $name\nCorreo Electrónico: $email\nMensaje:\n$message";
-        $headers = "From: $email";
+    if (empty(trim($_POST["respuesta1"]))) {
+        $respuesta1_err = "Por favor, ingrese la primera respuesta.";
+    } else {
+        $respuesta1 = trim($_POST["respuesta1"]);
+    }
 
-        if (mail($to, $subject, $email_body, $headers)) {
-            echo "<p class='alert alert-success'>La información se ha enviado correctamente.</p>";
-        } else {
-            echo "<p class='alert alert-danger'>Hubo un problema al enviar la información. Inténtelo de nuevo más tarde.</p>";
+    if (empty(trim($_POST["respuesta2"]))) {
+        $respuesta2_err = "Por favor, ingrese la segunda respuesta.";
+    } else {
+        $respuesta2 = trim($_POST["respuesta2"]);
+    }
+
+    // Verificar si no hay errores antes de insertar en la base de datos
+    if (empty($titulo_err) && empty($linea1_err) && empty($linea2_err) && empty($respuesta1_err) && empty($respuesta2_err)) {
+        $conexion = Conecta();
+
+        try {
+            // Preparar la consulta de inserción
+            $sql = "INSERT INTO TAB_preguntas_frecuentes (titulo, linea1, linea2, respuesta1, respuesta2) VALUES (:titulo, :linea1, :linea2, :respuesta1, :respuesta2)";
+            $stmt = $conexion->prepare($sql);
+
+            // Asignar parámetros
+            $stmt->bindParam(':titulo', $titulo, PDO::PARAM_STR);
+            $stmt->bindParam(':linea1', $linea1, PDO::PARAM_STR);
+            $stmt->bindParam(':linea2', $linea2, PDO::PARAM_STR);
+            $stmt->bindParam(':respuesta1', $respuesta1, PDO::PARAM_STR);
+            $stmt->bindParam(':respuesta2', $respuesta2, PDO::PARAM_STR);
+
+            // Ejecutar la consulta
+            if ($stmt->execute()) {
+                // Redirigir a la página de éxito
+                header("Location: preguntasf.php"); // Reemplaza 'pagina_exito.php' con la URL a la que deseas redirigir
+                exit();
+            } else {
+                echo "<p class='alert alert-danger'>Hubo un problema al enviar la información. Inténtelo de nuevo más tarde.</p>";
+            }
+        } catch (PDOException $e) {
+            echo "<p class='alert alert-danger'>Error: " . $e->getMessage() . "</p>";
+        } finally {
+            Desconectar($conexion);
         }
     } else {
         echo "<p class='alert alert-danger'>Por favor, complete el formulario correctamente.</p>";

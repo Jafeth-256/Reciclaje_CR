@@ -309,30 +309,39 @@
         <div class="answer">
           Puedes encontrar puntos de reciclaje cercanos en nuestro sitio web en la sección de "Puntos de Reciclaje" o contactar con tu ayuntamiento local para obtener más información.
         </div>
-        Si deseas agregar tu pregunta puedes realizarla mediante el siguiente link: <a href="preguntasf.html">Ir a Perfil</a>
+        Si deseas agregar tu pregunta puedes realizarla mediante el siguiente link: <a href="preguntasf.php">Ir a Perfil</a>
       </div>
     </section>
 
-    <section id="contact" class="container mt-5">
-      <h2 class="contact-header">Crea tu pregunta</h2>
-      <form action="enviar_pregunta.php" method="POST">
-        <div class="mb-3">
-          <label for="name" class="form-label">Nombre</label>
-          <input type="text" class="form-control" id="name" name="name" required />
-        </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Correo Electrónico</label>
-          <input type="email" class="form-control" id="email" name="email" required />
-        </div>
-        <div class="mb-3">
-          <label for="message" class="form-label">Mensaje</label>
-          <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Enviar</button>
-      </form>
-    </section>
+    <section id="create-question" class="container mt-5">
+  <h2 class="contact-header">Crea tu pregunta</h2>
+  <form action="enviar_pregunta.php" method="POST">
+    <div class="mb-3">
+      <label for="titulo" class="form-label">Título de la pregunta</label>
+      <input type="text" class="form-control" id="titulo" name="titulo" required />
+    </div>
+    <div class="mb-3">
+      <label for="linea1" class="form-label">Nombre del usuario</label>
+      <input type="text" class="form-control" id="linea1" name="linea1" required />
+    </div>
+    <div class="mb-3">
+      <label for="linea2" class="form-label">Correo electronico</label>
+      <input type="text" class="form-control" id="linea2" name="linea2" />
+    </div>
+    <div class="mb-3">
+      <label for="respuesta1" class="form-label">Pregunta</label>
+      <textarea class="form-control" id="respuesta1" name="respuesta1" rows="3" required></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="respuesta2" class="form-label">Posible respuesta de la pregunta </label>
+      <textarea class="form-control" id="respuesta2" name="respuesta2" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar Pregunta</button>
+  </form>
+</section>
 
-  <center> <button type="button" class="btn btn-secondary back-to-menu" onclick="location.href='index.html'">Volver al Menú Principal</button>  </center>
+
+  <center> <button type="button" class="btn btn-secondary back-to-menu" onclick="location.href='index.php'">Volver al Menú Principal</button>  </center>
   </main>
 
   <footer class="bg-light text-center p-4">
