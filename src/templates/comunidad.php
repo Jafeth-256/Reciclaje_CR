@@ -42,6 +42,49 @@ if (isset($_POST['logout'])) {
     .card-text {
       text-align: justify;
     }
+
+    .horarios-reciclaje {
+      background-color: #3c5441;
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    .horarios-reciclaje p {
+      font-size: 1.325rem;
+      margin-bottom: 10px;
+    }
+
+    .horarios-reciclaje ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .horarios-reciclaje li {
+      font-size: 1.225rem;
+      margin-bottom: 10px;
+    }
+
+    .highlighted {
+      color: rgb(214, 139, 0);
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .normal {
+      color: rgb(59, 59, 59);
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .text-center.mb-4 {
+      color: rgb(59, 59, 59);
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .card-text {
+            font-size: 1.010rem; /* Tamaño de fuente para el texto de la tarjeta */
+        }
+
   </style>
   <title>Recycle Hub</title>
 </head>
@@ -130,8 +173,9 @@ if (isset($_POST['logout'])) {
 
   <!-- Desarrollo -->
   <!-- Información sobre programas comunitarios -->
+  <br>
   <main class="container my-5">
-    <h1 class="text-center mb-4">Programas Comunitarios de Reciclaje en Costa Rica</h1>
+    <h1 class="text-center mb-4"><b>Programas Comunitarios de Reciclaje en Costa Rica</b></h1>
     <br>
 
     <section class="mb-5">
@@ -180,105 +224,110 @@ if (isset($_POST['logout'])) {
         </div>
       </div>
     </section>
-    <br>
+
 
     <!-- Mapa de centros de reciclaje -->
-    <br>
-    <section class="mb-5">
-      <h2>Mapa de Centros de Reciclaje</h2>
+    <section class="mb-5" style="margin-top: 110px;">
+      <h2>
+        <span class="highlighted"><b> Puntos de Reciclaje en </b></span><span class="normal"> <b> Costa Rica </b></span>
+      </h2>
       <br>
       <div id="map"></div>
     </section>
+    <br>
 
     <!-- Horarios de recolección -->
-    <section>
-      <h2>Horarios de Recolección de Reciclaje</h2>
-      <p>Consulta los horarios de recolección de reciclaje en tu comunidad:</p>
+    <h2 style="margin-top: 25px;">
+      <span class="normal"> <b> Horarios de Recolección de Reciclaje </b></span>
+    </h2>
+    <section class="horarios-reciclaje" style="margin-top: 15px;">
+      <p><b>Consulta los horarios de recolección de reciclaje en tu comunidad:</b></p>
       <ul>
-        <li><strong>San José:</strong> Lunes y Jueves, 8:00 AM - 12:00 PM</li>
-        <li><strong>Heredia:</strong> Martes y Viernes, 9:00 AM - 1:00 PM</li>
-        <li><strong>Alajuela:</strong> Miércoles y Sábado, 7:00 AM - 11:00 AM</li>
+        <li>Municipalidad de Montes de Oca: <a href="https://montesdeoca.go.cr/tramites_y_servicios/servicios/servicios_ambientales/Reciclaje_y_Recoleccion_de_Residuos.aspx" class="card-link">Ver horarios</a></li>
+        <li>Municipalidad de Alajuela: <a href="https://www.munialajuela.go.cr/cms/api/File/DownloadFile/OtherFiles/CALENDARIO_RECOLECCION_DE_RESIDUOS_VALORIZABLES__2023_02-03-2023_13_03_34.pdf" class="card-link">Ver horarios</a></li>
+        <li>Municipalidad de Curridabat: <a href="https://www.curridabat.go.cr/rigen-nuevos-horarios-de-recoleccion-de-residuos-en-algunos-sectores-del-canton/" class="card-link">Ver horarios</a></li>
+        <li>Municipalidad de Escazu: <a href="https://www.escazu.go.cr/servicios-de-limpieza-y-otros/recoleccion-de-residuos-solidos-y-reciclaje" class="card-link">Ver horarios</a></li>
+        <li>Municipalidad de San Isidro de Heredia:<a href="https://www.munisanisidro.go.cr/index.php/servicios/horarios-de-reciclaje" class="card-link">Ver horarios</a></li>
+        <li>Municipalidad de Santa Ana:<a href="https://www.santaana.go.cr/rutas-recoleccion-de-residuos-limpieza-de-parques-y-zonas-verdes/" class="card-link">Ver horarios</a></li>
       </ul>
     </section>
-  </main>
 
+    <!-- Leaflet Map Script -->
+    <script>
+      var map = L.map('map').setView([9.7489, -83.7534], 9); // Coordenadas de Costa Rica
 
-  <footer class="bg-light text-center p-4">
-    <p>&copy; 2024 Recycle Hub. Todos los derechos reservados.</p>
-  </footer>
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map);
 
-  <!-- Leaflet Map Script -->
-  <script>
-    var map = L.map('map').setView([9.7489, -83.7534], 9); // Coordenadas de Costa Rica
+      var marker = L.marker([9.9185, -84.0348]).addTo(map)
+        .bindPopup('Reciclaje Ipp')
+        .openPopup();
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
+      var marker = L.marker([9.955725903055319, -84.03145996294812]).addTo(map)
+        .bindPopup('Recicladora Química S.A')
+        .openPopup();
 
-    var marker = L.marker([9.9185, -84.0348]).addTo(map)
-      .bindPopup('Reciclaje Ipp')
-      .openPopup();
+      var marker = L.marker([9.967587867250804, -84.21364098750287]).addTo(map)
+        .bindPopup('Recicladora y Maquila HyO')
+        .openPopup();
 
-    var marker = L.marker([9.955725903055319, -84.03145996294812]).addTo(map)
-      .bindPopup('Recicladora Química S.A')
-      .openPopup();
+      var marker = L.marker([9.9680607353773, -84.22420620880756]).addTo(map)
+        .bindPopup('Centro de Acopio San Rafael')
+        .openPopup();
 
-    var marker = L.marker([9.967587867250804, -84.21364098750287]).addTo(map)
-      .bindPopup('Recicladora y Maquila HyO')
-      .openPopup();
+      var marker = L.marker([10.001158476370389, -84.16447579030088]).addTo(map)
+        .bindPopup('Planta Reciclaje, Florida Bebidas')
+        .openPopup();
 
-    var marker = L.marker([9.9680607353773, -84.22420620880756]).addTo(map)
-      .bindPopup('Centro de Acopio San Rafael')
-      .openPopup();
+      var marker = L.marker([9.985284290982898, -84.15107577965132]).addTo(map)
+        .bindPopup('Recicla Costa Rica MN S.A.')
+        .openPopup();
 
-    var marker = L.marker([10.001158476370389, -84.16447579030088]).addTo(map)
-      .bindPopup('Planta Reciclaje, Florida Bebidas')
-      .openPopup();
+      var marker = L.marker([10.011840761810273, -84.10242320374859]).addTo(map)
+        .bindPopup('Centro de acopio y reciclaje')
+        .openPopup();
 
-    var marker = L.marker([9.985284290982898, -84.15107577965132]).addTo(map)
-      .bindPopup('Recicla Costa Rica MN S.A.')
-      .openPopup();
+      var marker = L.marker([9.978348620664608, -84.0856045748214]).addTo(map)
+        .bindPopup('Recicladora Eco-Logistica CR')
+        .openPopup();
 
-    var marker = L.marker([10.011840761810273, -84.10242320374859]).addTo(map)
-      .bindPopup('Centro de acopio y reciclaje')
-      .openPopup();
+      var marker = L.marker([9.952565233196, -84.07830896600805]).addTo(map)
+        .bindPopup('Centro de Acopio Tibás Recicla')
+        .openPopup();
 
-    var marker = L.marker([9.978348620664608, -84.0856045748214]).addTo(map)
-      .bindPopup('Recicladora Eco-Logistica CR')
-      .openPopup();
+      var marker = L.marker([9.952987928079681, -84.05307474308684]).addTo(map)
+        .bindPopup('Centro de recepcion de reciclaje PROGEA de Costa Rica')
+        .openPopup();
 
-    var marker = L.marker([9.952565233196, -84.07830896600805]).addTo(map)
-      .bindPopup('Centro de Acopio Tibás Recicla')
-      .openPopup();
+      var marker = L.marker([9.95241330486598, -84.02913635632486]).addTo(map)
+        .bindPopup('CCM Centro de Clasificación de Materiales')
+        .openPopup();
 
-    var marker = L.marker([9.952987928079681, -84.05307474308684]).addTo(map)
-      .bindPopup('Centro de recepcion de reciclaje PROGEA de Costa Rica')
-      .openPopup();
+      var marker = L.marker([9.984341846520778, -83.98443390832838]).addTo(map)
+        .bindPopup('Reciclaje Alfaro')
+        .openPopup();
 
-    var marker = L.marker([9.95241330486598, -84.02913635632486]).addTo(map)
-      .bindPopup('CCM Centro de Clasificación de Materiales')
-      .openPopup();
+      var marker = L.marker([9.920556522453488, -84.10459432071508]).addTo(map)
+        .bindPopup('Centro de Reciclaje Municipalidad de San Jose')
+        .openPopup();
 
-    var marker = L.marker([9.984341846520778, -83.98443390832838]).addTo(map)
-      .bindPopup('Reciclaje Alfaro')
-      .openPopup();
+      var marker = L.marker([9.982735156524399, -84.22532664272556]).addTo(map)
+        .bindPopup('Reciclaje Valenciano')
+        .openPopup();
 
-    var marker = L.marker([9.920556522453488, -84.10459432071508]).addTo(map)
-      .bindPopup('Centro de Reciclaje Municipalidad de San Jose')
-      .openPopup();
+      var marker = L.marker([10.094656301015542, -84.37315463422155]).addTo(map)
+        .bindPopup('Reciclaje Arrieta')
+        .openPopup();
 
-    var marker = L.marker([9.982735156524399, -84.22532664272556]).addTo(map)
-      .bindPopup('Reciclaje Valenciano')
-      .openPopup();
+      var marker = L.marker([9.884685364150329, -83.94159793242802]).addTo(map)
+        .bindPopup('Recicladora Hernández Cartín')
+        .openPopup();
+    </script>
 
-    var marker = L.marker([10.094656301015542, -84.37315463422155]).addTo(map)
-      .bindPopup('Reciclaje Arrieta')
-      .openPopup();
-
-    var marker = L.marker([9.884685364150329, -83.94159793242802]).addTo(map)
-      .bindPopup('Recicladora Hernández Cartín')
-      .openPopup();
-  </script>
+    <footer class="bg-light text-center p-4">
+      <p>&copy; 2024 Recycle Hub. Todos los derechos reservados.</p>
+    </footer>
 
 </body>
 

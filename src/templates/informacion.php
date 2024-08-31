@@ -154,7 +154,7 @@ if (isset($_POST['logout'])) {
                                 <p class="card-text">El plástico está presente en innumerables productos, desde los envases y bandejas para alimentos, hasta envases para detergentes, productos de higiene, muebles, bolsas, envoltorios,…</p>
                             </div>
                             <div class="card-footer">
-                                <a href="#guide-plastic" class="btn btn-outline-secondary">Leer más</a>
+                                <a href="https://www.bbva.com/es/sostenibilidad/como-se-recicla-el-plastico-y-cual-es-su-objetivo/" class="btn btn-outline-secondary">Leer más</a>
                             </div>
                         </div>
                     </div>
@@ -166,7 +166,7 @@ if (isset($_POST['logout'])) {
                                 <p class="card-text">Un material que puede ser reciclado siempre y sin que pierda sus propiedades. Puede ser fundido y convertido en nuevos envases de vidrio, botellas, …</p>
                             </div>
                             <div class="card-footer">
-                                <a href="#guide-glass" class="btn btn-outline-secondary">Leer más</a>
+                                <a href="https://www.bbva.com/es/sostenibilidad/descubre-cual-es-el-proceso-de-reciclaje-del-vidrio/" class="btn btn-outline-secondary">Leer más</a>
                             </div>
                         </div>
                     </div>
@@ -178,7 +178,7 @@ if (isset($_POST['logout'])) {
                                 <p class="card-text">Un material altamente reciclaje y muy utilizado, se recicla en nuevos materiales. Esta en cajas de cartón, papel en las oficinas, periódicos, revistas,…</p>
                             </div>
                             <div class="card-footer">
-                                <a href="#guide-paper" class="btn btn-outline-secondary">Leer más</a>
+                                <a href="https://regiondemurcialimpia.es/fracciones-reciclaje/reciclar-papel" class="btn btn-outline-secondary">Leer más</a>
                             </div>
                         </div>
                     </div>
@@ -190,7 +190,7 @@ if (isset($_POST['logout'])) {
                                 <p class="card-text">Los metales son altamente reciclajes y tienen gran valor porque no pierden propiedades. Su reciclaje permite la fabricación de latas, utensilios de cocina, electrodomésticos,…</p>
                             </div>
                             <div class="card-footer">
-                                <a href="#guide-metal" class="btn btn-outline-secondary">Leer más</a>
+                                <a href="https://reducereutilizarecicla.org/metal-reciclado/" class="btn btn-outline-secondary">Leer más</a>
                             </div>
                         </div>
                     </div>
@@ -202,7 +202,7 @@ if (isset($_POST['logout'])) {
                                 <p class="card-text">La madera es otro material que puede ser reciclado si se separa correctamente. Se puede usar para fabricar nuevos productos como muebles de madera reciclada,…</p>
                             </div>
                             <div class="card-footer">
-                                <a href="#guide-metal" class="btn btn-outline-secondary">Leer más</a>
+                                <a href="https://gestanconteco.com/2020/04/29/como-reciclar-madera-donde-puede-despositar/" class="btn btn-outline-secondary">Leer más</a>
                             </div>
                         </div>
                     </div>
@@ -214,7 +214,7 @@ if (isset($_POST['logout'])) {
                                 <p class="card-text">Tienen muchos componentes que pueden ser reciclados y valorizados para nuevos productos. Pueden ser reciclados en nuevos teléfonos móviles, impresoras, ordenadores,…</p>
                             </div>
                             <div class="card-footer">
-                                <a href="#guide-metal" class="btn btn-outline-secondary">Leer más</a>
+                                <a href="https://www.nationalgeographicla.com/medio-ambiente/2022/05/por-que-el-reciclaje-de-aparatos-electronicos-es-tan-importante-para-el-planeta" class="btn btn-outline-secondary">Leer más</a>
                             </div>
                         </div>
                     </div>
