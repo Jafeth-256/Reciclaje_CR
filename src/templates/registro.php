@@ -44,27 +44,57 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
-    <link rel="stylesheet" href="../styles/style.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h2>Registro</h2>
-        <?php if ($error): ?>
-            <p class="error"><?php echo htmlspecialchars($error, ENT_QUOTES, 'UTF-8'); ?></p>
-        <?php endif; ?>
-        <?php if ($exito): ?>
-            <p class="success"><?php echo htmlspecialchars($exito, ENT_QUOTES, 'UTF-8'); ?></p>
-        <?php endif; ?>
-        <form method="post" action="">
-            <input type="text" name="first_name" placeholder="Nombre" required>
-            <input type="text" name="last_name" placeholder="Apellido" required>
-            <input type="text" name="email" placeholder="Correo Electrónico" required>
-            <input type="text" name="nombre_usuario" placeholder="Nombre de Usuario" required>
-            <input type="password" name="contrasena" placeholder="Contraseña" required>
-            <input type="password" name="confirmar_contrasena" placeholder="Confirmar Contraseña" required>
-            <input type="submit" value="Registrarse">
-        </form>
-        <p class="message">¿Ya estás registrado? <a href="login.php">Iniciar Sesión</a></p>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title text-center">Registro</h2>
+                        <?php if ($error): ?>
+                            <div class="alert alert-danger" role="alert">
+                                <?php echo htmlspecialchars($error, ENT_QUOTES, 'UTF-8'); ?>
+                            </div>
+                        <?php endif; ?>
+                        <?php if ($exito): ?>
+                            <div class="alert alert-success" role="alert">
+                                <?php echo htmlspecialchars($exito, ENT_QUOTES, 'UTF-8'); ?>
+                            </div>
+                        <?php endif; ?>
+                        <form method="post" action="">
+                            <div class="form-group">
+                                <label for="first_name">Nombre</label>
+                                <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="last_name">Apellido</label>
+                                <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Apellido" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Correo Electrónico</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Correo Electrónico" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="nombre_usuario">Nombre de Usuario</label>
+                                <input type="text" class="form-control" id="nombre_usuario" name="nombre_usuario" placeholder="Nombre de Usuario" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contrasena">Contraseña</label>
+                                <input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="Contraseña" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmar_contrasena">Confirmar Contraseña</label>
+                                <input type="password" class="form-control" id="confirmar_contrasena" name="confirmar_contrasena" placeholder="Confirmar Contraseña" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Registrarse</button>
+                        </form>
+                        <p class="text-center mt-3">¿Ya estás registrado? <a href="login.php">Iniciar Sesión</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
