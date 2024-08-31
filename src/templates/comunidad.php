@@ -1,5 +1,18 @@
+<?php
+session_start();
+$usuario_logueado = isset($_SESSION['nombre_usuario']);
+$nombre_usuario = $usuario_logueado ? $_SESSION['nombre_usuario'] : '';
+
+// Función para cerrar sesión
+if (isset($_POST['logout'])) {
+  session_destroy();
+  header("Location: index.php");
+  exit();
+}
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8" />
@@ -14,7 +27,7 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
 
-  <title>Comunidad</title>
+  <title>Recycle Hub</title>
 </head>
 
 <body>
@@ -75,14 +88,25 @@
               <a class="nav-link" href="perfil.php">Perfil</a>
             </li>
           </ul>
-          <!-- Login / Sign up -->
-          <div
-            class="d-flex flex-column flex-lg-row align-items-center gap-3">
-            <a
-              href="#signup"
-              class="text-white text-decoration-none px-3 py-1 rounded-4"
-              style="background-color: #3c5441">Iniciar Sesión</a>
+          <!-- Login / Logout -->
+          <div class="d-flex flex-column flex-lg-row align-items-center gap-3">
+            <?php if ($usuario_logueado): ?>
+              <span class="nav-link fs-5 text-dark mx-2" style="background-color: transparent; border: none;">
+                Bienvenido, <?php echo htmlspecialchars($nombre_usuario); ?>
+              </span>
+              <form method="post" action="">
+                <button type="submit" name="logout" class="nav-link text-white text-decoration-none px-3 py-1 rounded-4" style="background-color: #3c5441">
+                  Cerrar Sesión
+                </button>
+              </form>
+            <?php else: ?>
+              <a href="login.php" class="nav-link text-white text-decoration-none px-3 py-1 rounded-4" style="background-color: #3c5441">
+                Iniciar Sesión
+              </a>
+            <?php endif; ?>
           </div>
+
+
         </div>
       </div>
     </div>

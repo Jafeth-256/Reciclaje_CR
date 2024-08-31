@@ -1,115 +1,118 @@
-CREATE DATABASE APPWEB;
+CREATE DATABASE IF NOT EXISTS APPWEB;
+
+
 USE APPWEB;
+
+
 CREATE USER IF NOT EXISTS 'ADMIN'@'%' IDENTIFIED BY 'PASS';
 GRANT ALL PRIVILEGES ON APPWEB.* TO 'ADMIN'@'%'; 
 FLUSH PRIVILEGES;
-DROP SCHEMA APPWEB;
 
-CREATE TABLE APPWEB.USUARIO (
-	id_usuario int not null auto_increment,
-    nombre varchar(40),
-    apellido varchar(100),
-    correo varchar(50) not null,
-    contraseña varchar(20) not null,
-    perfil_ruta_imagen varchar (1024),
-    primary key (id_usuario))
-    engine= InnoDB default character set = utf8mb4;
-    
-CREATE TABLE APPWEB.TAB_HISTORIAL_RECICLAJE(
-	cod_hr int not null,
-    id_usuario int,
-    titulo varchar(20),
-    fecha_publicacion date,
-    linea1 varchar(1024),
-    linea2 varchar(1024),
-    ruta_img varchar(1024),
-    primary key (cod_hr))
-     engine= InnoDB default character set = utf8mb4;
-    
-CREATE TABLE APPWEB.TAB_INFO_CAT (
-	cod_infocat int not null auto_increment,
-    titulo varchar(40),
-    ruta_imagen varchar (1024),
-    primary key (cod_infocat))
-    engine= InnoDB default character set = utf8mb4;
-    
-    INSERT INTO APPWEB.TAB_INFO_CAT (titulo) values 
+
+CREATE TABLE USUARIO (
+	id_usuario INT NOT NULL AUTO_INCREMENT,
+    nombre VARCHAR(40),
+    apellido VARCHAR(100),
+    correo VARCHAR(50) NOT NULL,
+    contraseña VARCHAR(20) NOT NULL,
+    perfil_ruta_imagen VARCHAR(1024),
+    PRIMARY KEY (id_usuario)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE TAB_HISTORIAL_RECICLAJE (
+	cod_hr INT NOT NULL,
+    id_usuario INT,
+    titulo VARCHAR(20),
+    fecha_publicacion DATE,
+    linea1 VARCHAR(1024),
+    linea2 VARCHAR(1024),
+    ruta_img VARCHAR(1024),
+    PRIMARY KEY (cod_hr)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE TAB_INFO_CAT (
+	cod_infocat INT NOT NULL AUTO_INCREMENT,
+    titulo VARCHAR(40),
+    ruta_imagen VARCHAR(1024),
+    PRIMARY KEY (cod_infocat)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+INSERT INTO TAB_INFO_CAT (titulo) VALUES 
 	('Consejos Practicos'),
     ('Guias'),
     ('Recursos Visuales');
-    
-CREATE TABLE APPWEB.TAB_INFO_SECCION(
-	cod_seccion int not null auto_increment,
-    cod_infocat int,
-    id_usuario int,
-    titulo varchar(50),
-    linea_1 varchar(2048),
-    linea_2 varchar(2048),
-    ruta_img varchar(1024),
-    primary key (cod_seccion),
-    foreign key fk_info_usuario(id_usuario) references USUARIO (id_usuario),
-    foreign key fk_info_cat(cod_infocat) references TAB_INFO_CAT (cod_infocat))
-    engine= InnoDB default character set = utf8mb4;
 
-    CREATE TABLE APPWEB.TAB_PART_COMUNITARIA(
-		cod_part varchar (50),
-        titulo varchar (100),
-        ruta_img varchar (1024),
-        primary key (cod_part))
-        engine= InnoDB default character set = utf8mb4;
-        
-	INSERT INTO APPWEB.tab_part_comunitaria (cod_part, titulo) VALUES
-		('PMC','Programas comunitarios'),
-        ('HUR','Hubicaciones de reciclaje'),
-        ('HOR','Horarios de recoleccion');
-        
-        
-	CREATE TABLE APPWEB.TAB_PC_SECCION(
-		cod_pc_seccion int auto_increment,
-        id_usuario int,
-        cod_part varchar(50),
-        titulo varchar(30),
-        fecha_publicacion date,
-		linea_1 varchar(2048),
-		linea_2 varchar(2048),
-		ruta_img varchar(1024),
-		primary key (cod_pc_seccion),
-        foreign key fk_pc_usuario (id_usuario) references USUARIO (id_usuario),
-        foreign key fk_cod_par(cod_part) references TAB_PART_COMUNITARIA (cod_part))
-        engine= InnoDB default character set = utf8mb4;
+CREATE TABLE TAB_INFO_SECCION (
+	cod_seccion INT NOT NULL AUTO_INCREMENT,
+    cod_infocat INT,
+    id_usuario INT,
+    titulo VARCHAR(50),
+    linea_1 VARCHAR(2048),
+    linea_2 VARCHAR(2048),
+    ruta_img VARCHAR(1024),
+    PRIMARY KEY (cod_seccion),
+    FOREIGN KEY (id_usuario) REFERENCES USUARIO (id_usuario),
+    FOREIGN KEY (cod_infocat) REFERENCES TAB_INFO_CAT (cod_infocat)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-		
-	CREATE TABLE APPWEB.TAB_AYUDA_SOPORTE(
-		cod_as varchar(50),
-        titulo varchar(100),
-        primary key (cod_as))
-        engine= InnoDB default character set = utf8mb4;
-	
-	
-    INSERT INTO appweb.tab_ayuda_soporte VALUES 
-		('PF', 'Preguntas Frecuentes'),
-        ('FC', 'Formalario de contacto'),
-        ('ES', 'Enlaces adicionales');
-        
-	CREATE TABLE APPWEB.TAB_preguntas_frecuentes(
-		id_pregunta int unique auto_increment,
-        id_usuario int,
-        titulo varchar (40),
-        linea1 varchar(1024),
-        linea2 varchar(1024),
-        respuesta1 varchar(1024),
-        respuesta2 varchar(1024),
-        primary key (id_pregunta),
-        foreign key fk_ays_usuario (id_usuario) references USUARIO(id_usuario))
-         engine= InnoDB default character set = utf8mb4;
-        
-        CREATE TABLE APPWEB.TAB_FORMULARIO_CONTACTO(
-			id_formulario int not null auto_increment,
-            cod_as varchar(50),
-            nombre varchar(50),
-            correo varchar(50),
-            mensaje varchar(1024),
-            primary key (id_formulario),
-            foreign key fk_fc_cod_as (cod_as) references tab_ayuda_soporte(cod_as));
+CREATE TABLE TAB_PART_COMUNITARIA (
+	cod_part VARCHAR(50),
+    titulo VARCHAR(100),
+    ruta_img VARCHAR(1024),
+    PRIMARY KEY (cod_part)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-            
+
+INSERT INTO TAB_PART_COMUNITARIA (cod_part, titulo) VALUES
+	('PMC','Programas comunitarios'),
+    ('HUR','Hubicaciones de reciclaje'),
+    ('HOR','Horarios de recoleccion');
+
+CREATE TABLE TAB_PC_SECCION (
+	cod_pc_seccion INT AUTO_INCREMENT,
+    id_usuario INT,
+    cod_part VARCHAR(50),
+    titulo VARCHAR(30),
+    fecha_publicacion DATE,
+	linea_1 VARCHAR(2048),
+	linea_2 VARCHAR(2048),
+	ruta_img VARCHAR(1024),
+	PRIMARY KEY (cod_pc_seccion),
+    FOREIGN KEY (id_usuario) REFERENCES USUARIO (id_usuario),
+    FOREIGN KEY (cod_part) REFERENCES TAB_PART_COMUNITARIA (cod_part)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE TAB_AYUDA_SOPORTE (
+	cod_as VARCHAR(50),
+    titulo VARCHAR(100),
+    PRIMARY KEY (cod_as)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+INSERT INTO TAB_AYUDA_SOPORTE VALUES 
+	('PF', 'Preguntas Frecuentes'),
+    ('FC', 'Formulario de contacto'),
+    ('ES', 'Enlaces adicionales');
+
+CREATE TABLE TAB_PREGUNTAS_FRECUENTES (
+	id_pregunta INT UNIQUE AUTO_INCREMENT,
+    id_usuario INT,
+    titulo VARCHAR(40),
+    linea1 VARCHAR(1024),
+    linea2 VARCHAR(1024),
+    respuesta1 VARCHAR(1024),
+    respuesta2 VARCHAR(1024),
+    PRIMARY KEY (id_pregunta),
+    FOREIGN KEY (id_usuario) REFERENCES USUARIO(id_usuario)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE TAB_FORMULARIO_CONTACTO (
+	id_formulario INT NOT NULL AUTO_INCREMENT,
+    cod_as VARCHAR(50),
+    nombre VARCHAR(50),
+    correo VARCHAR(50),
+    mensaje VARCHAR(1024),
+    PRIMARY KEY (id_formulario),
+    FOREIGN KEY (cod_as) REFERENCES TAB_AYUDA_SOPORTE(cod_as)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
