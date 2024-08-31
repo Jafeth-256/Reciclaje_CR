@@ -352,32 +352,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
   </nav>
 
-  <!-- Carousel -->
-<div id="hero-carousel" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-indicators">
-    <button
-      type="button"
-      data-bs-target="#hero-carousel"
-      data-bs-slide-to="0"
-      class="active"
-      aria-current="true"
-      aria-label="Slide 1"
-    ></button>
-  </div>
 
-  <div class="carousel-inner">
-    <div class="carousel-item active c-item">
-      <img
-        src="https://cdn.pixabay.com/photo/2019/11/18/08/21/bonsai-4634225_1280.jpg"
-        class="d-block w-100 c-img"
-        alt="Slide 1"
-      />
-      <div class="carousel-caption top-0 mt-4">
-        <p class="mt-5 fs-3 text-uppercase">Ayuda y soporte con</p>
-        <p class="display-1 fw-bolder text-capitalize">Recycle Hub</p>
-      </div>
-    </div>
-    </div>
+<!-- Título -->
+  <div class="text-center mt-4">
+    <p class="mt-5 fs-3 text-uppercase">Ayuda y soporte con</p>
+    <p class="display-1 fw-bolder text-capitalize">Recycle Hub</p>
+  </div>
 
   <main class="container mt-4">
     <!-- Sección de Inicio -->
