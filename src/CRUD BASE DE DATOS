@@ -116,3 +116,16 @@ CREATE TABLE TAB_FORMULARIO_CONTACTO (
     PRIMARY KEY (id_formulario),
     FOREIGN KEY (cod_as) REFERENCES TAB_AYUDA_SOPORTE(cod_as)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+
+
+-------------base de datos de LOGIN----------------
+CREATE TABLE users (
+    id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+

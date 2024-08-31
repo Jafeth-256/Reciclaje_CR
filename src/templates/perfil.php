@@ -3,30 +3,40 @@ session_start();
 $usuario_logueado = isset($_SESSION['nombre_usuario']);
 $nombre_usuario = $usuario_logueado ? $_SESSION['nombre_usuario'] : '';
 
-// Función para cerrar sesión
 if (isset($_POST['logout'])) {
   session_destroy();
   header("Location: index.php");
   exit();
+}
+
+include '../../DAL/Conexion.php';
+
+$user = null;
+if ($usuario_logueado) {
+  $pdo = conectar('login_system');
+  $stmt = $pdo->prepare("SELECT id, first_name, last_name, email FROM usuarios WHERE nombre_usuario = ?");
+  $stmt->execute([$nombre_usuario]);
+  $user = $stmt->fetch(PDO::FETCH_ASSOC);
+  desconectar($pdo);
 }
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
 <link rel="stylesheet" href="../styles/main.css">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+  crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 
 <body>
@@ -112,203 +122,118 @@ if (isset($_POST['logout'])) {
   </nav>
 
 
-    <!--Contenedor perfil-->
-    <main class="container-fluid pt-4">
-        <div class="row">
-            <aside class="col-md-3 bd-aside">
-                <div class="card mb-2 p-2">
-                  <div class="card-header">Perfil de Usuario</div>
-                  <div class="card-body">
-                    <img src="https://via.placeholder.com/150" class="card-img" alt="Imagen de perfil">
-                    
-                    <p class="card-text">ID</p>
-                    <p class="card-text">Nombre</p>
-                    <p class="card-text">Apellido</p>
-                    <p class="card-text">Correo</p>
-                    <div class="card-footer">
-                        <button 
-                        class="btn btn-btn-outline-secondary btn-sm mt-2" 
-                        data-toggle="modal" 
-                        data-target="#editarPerfilModal">
-                            <i class="fas fa-edit"></i> Editar perfil
-                          </button>
-                    </div>
+  <!--Contenedor perfil-->
+  <main class="container-fluid pt-4">
+    <div class="row">
+      <aside class="col-md-3 bd-aside">
+        <div class="card mb-2 p-2">
+          <div class="card-header">Perfil de Usuario</div>
+          <div class="card-body">
+            <div class="d-flex justify-content-center">
+              <img src="https://cdn.icon-icons.com/icons2/3298/PNG/512/ui_user_profile_avatar_person_icon_208734.png" class="card-img" alt="Imagen de perfil">
+            </div>
 
-                  </div>
-                </div>
-              </aside>
-              <main class="col-md-8 bd-main order-1">
-                
-                <div id="contenido" class="row">
-                    <h4>Historial Reciclaje</h4>
-                    
-                    <table class="table table-bordered mr-2">
-                        <thead>
-                            <th>#</th>
-                            <th>Titulo</th>
-                            <th>Descripcion</th>
-                            <th>Fecha de puclicación</th>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                
-                            </tr>
-                        </tbody>
+            <?php if ($user): ?>
+              <p class="card-text">ID: <?php echo htmlspecialchars($user['id']); ?></p>
+              <p class="card-text">Nombre: <?php echo htmlspecialchars($user['first_name']); ?></p>
+              <p class="card-text">Apellido: <?php echo htmlspecialchars($user['last_name']); ?></p>
+              <p class="card-text">Correo: <?php echo htmlspecialchars($user['email']); ?></p>
+            <?php else: ?>
+              <p class="card-text">Por favor, inicia sesión para ver tu perfil.</p>
+            <?php endif; ?>
 
-                    </table>    
-                </div>   
-              </main>
+            <div class="d-flex justify-content-center">
+              <button
+                class="btn btn-outline-secondary btn-sm mt-2"
+                data-bs-toggle="modal"
+                data-bs-target="#editarPerfilModal">
+                <i class="fas fa-edit"></i> Editar perfil
+              </button>
+            </div>
+          </div>
         </div>
-    </main>
+      </aside>
+      <main class="col-md-8 bd-main order-1">
+        <div id="contenido" class="row">
+          <h4>Historial Reciclaje</h4>
+
+          <table class="table table-bordered mr-2">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Titulo</th>
+                <th>Descripcion</th>
+                <th>Fecha de publicación</th>
+              </tr>
+            </thead>
+            <tbody>
+
+          </table>
+        </div>
+      </main>
+    </div>
+  </main>
 </body>
 
 <!--modal boostrap-->
-<div class="modal fade" id="editarPerfilModal" tabindex="-1" aria-labelledby="editarPerfilModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="editarPerfilModalLabel">Editar perfil</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+<div class="modal fade" id="editarPerfilModal" tabindex="-1" aria-labelledby="editarPerfilModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editarPerfilModalLabel">Editar perfil</h5>
+        <button type="button" class="btn-close nav-link text-white text-decoration-none px-3 py-1 rounded-4" style="background-color: #3c5441" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <?php if ($user): ?>
+            <div class="form-group">
+              <label for="id">ID</label>
+              <input type="text" class="form-control" id="id" value="<?php echo htmlspecialchars($user['id']); ?>" readonly>
             </div>
-            <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <label for="id">ID</label>
-                        <input type="text" class="form-control" id="id" value="ID del usuario" readonly>
-                    </div>
-                    <div class="form-group">
-                        <label for="nombre">Nombre</label>
-                        <input type="text" class="form-control" id="nombre" value="Nombre del usuario">
-                    </div>
-                    <div class="form-group">
-                        <label for="apellido">Apellido</label>
-                        <input type="text" class="form-control" id="apellido" value="Apellido del usuario">
-                    </div>
-                    <div class="form-group">
-                        <label for="correo">Correo</label>
-                        <input type="email" class="form-control" id="correo" value="Correo del usuario">
-                    </div>
-                    <div class="form-group">
-                        <label for="imagen">Imagen de perfil</label>
-                        <input type="file" class="form-control" id="imagen">
-                    </div>
-                </form>
+            <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <input type="text" class="form-control" id="nombre" value="<?php echo htmlspecialchars($user['first_name']); ?>">
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary">Guardar cambios</button>
+            <div class="form-group">
+              <label for="apellido">Apellido</label>
+              <input type="text" class="form-control" id="apellido" value="<?php echo htmlspecialchars($user['last_name']); ?>">
             </div>
-        </div>
+            <div class="form-group">
+              <label for="correo">Correo</label>
+              <input type="email" class="form-control" id="correo" value="<?php echo htmlspecialchars($user['email']); ?>">
+            </div>
+          <?php else: ?>
+            <p>Por favor, inicia sesión para editar tu perfil.</p>
+          <?php endif; ?>
+          <div class="form-group">
+            <label for="imagen">Imagen de perfil</label>
+            <input type="file" class="form-control" id="imagen">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary">Guardar cambios</button>
+      </div>
     </div>
+  </div>
 </div>
 
-<!-- Modal de Inicio de Sesión -->
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="loginModalLabel">Inicio de Sesión</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="mb-3">
-              <label for="username" class="form-label">Username</label>
-              <input type="text" class="form-control" id="username" placeholder="Username">
-            </div>
-            <div class="mb-3">
-              <label for="password" class="form-label">Password</label>
-              <input type="password" class="form-control" id="password" placeholder="Password">
-            </div>
-            <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
+<footer class="bg-light text-center p-4">
+  <p>&copy; 2024 Recycle Hub. Todos los derechos reservados.</p>
+</footer>
 
-  <!-- Modal de Inicio de Sesión -->
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="loginModalLabel">Inicio de Sesión</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="mb-3">
-              <label for="correo" class="form-label">Correo</label>
-              <input type="email" class="form-control" id="correo" placeholder="Correo">
-            </div>
-            <div class="mb-3">
-              <label for="contraseña" class="form-label">Contraseña</label>
-              <input type="password" class="form-control" id="contraseña" placeholder="Contraseña">
-            </div>
-            <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal de Crear Usuario -->
-<div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="signupModalLabel">Crear Usuario</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="mb-3">
-              <label for="nombre" class="form-label">Nombre</label>
-              <input type="text" class="form-control" id="nombre" placeholder="Nombre">
-            </div>
-            <div class="mb-3">
-                <label for="apellido" class="form-label">Apellidos</label>
-                <input type="text" class="form-control" id="apellido" placeholder="Apellido">
-              </div>
-            <div class="mb-3">
-              <label for="correo" class="form-label">Correo</label>
-              <input type="email" class="form-control" id="correo" placeholder="Email">
-            </div>
-            <div class="mb-3">
-              <label for="contraseña" class="form-label">Contraseña</label>
-              <input type="password" class="form-control" id="contraseña" placeholder="Contraseña">
-            </div>
-            <div class="mb-3">
-              <label for="confirm-contraseña" class="form-label">Confirmar Contraseña</label>
-              <input type="password" class="form-control" id="confirm-contraseña" placeholder="Confirmar contraseña">
-            </div>
-            <button type="submit" class="btn btn-primary">Crear Usuario</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <br>
-
-  <footer class="bg-light text-center p-4">
-    <p>&copy; 2024 Recycle Hub. Todos los derechos reservados.</p>
-  </footer>
-
+<script>
   // Abrir modal de inicio de sesión
-document.getElementById('login').addEventListener('click', function() {
-  $('#loginModal').modal('show');
-});
+  document.getElementById('login').addEventListener('click', function() {
+    $('#loginModal').modal('show');
+  });
 
-// Abrir modal de crear usuario
-document.getElementById('signup').addEventListener('click', function() {
-  $('#signupModal').modal('show');
-});
-
-
-
+  // Abrir modal de crear usuario
+  document.getElementById('signup').addEventListener('click', function() {
+    $('#signupModal').modal('show');
+  });
+</script>
+</body>
 
 </html>
